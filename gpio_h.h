@@ -2,7 +2,6 @@
 #define GPIO_H
 
 #include "stm32f411xe.h"
-#include "rcc_h.h"
 
 // GPIO Modes
 #define GPIO_MODE_INPUT      0x0

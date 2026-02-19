@@ -9,22 +9,25 @@ void RCC_Init()
 	RCC->CFGR &= ~RCC_CFGR_SW;
 }
 
-void RCC_Enable_GPIOA(void)
+void RCC_Enable_GPIOx(GPIO_TypeDef *GPIOx)
 {
-	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
+	if (GPIOx == GPIOA)
+		RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
+	else if (GPIOx == GPIOB)
+    RCC->AHB1ENR |= RCC_AHB1ENR_GPIOBEN;
+	else if (GPIOx == GPIOC)
+    RCC->AHB1ENR |= RCC_AHB1ENR_GPIOCEN;
 }
 
-void RCC_Enable_GPIOB(void)
+void RCC_Enable_TIMx(TIM_TypeDef *TIMx)
 {
-	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOBEN;
-}
-
-void RCC_Enable_GPIOC(void)
-{
-	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOCEN;
-}
-
-void RCC_Enable_GPIOD(void)
-{
-	RCC->AHB1ENR |= RCC_AHB1ENR_GPIODEN;
+	if (TIMx == TIM1)
+		RCC->APB2ENR |= RCC_APB2ENR_TIM1EN;
+	else if (TIMx == TIM2)
+		RCC->APB1ENR |= RCC_APB1ENR_TIM2EN;
+	else if (TIMx == TIM3)
+		RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;
+	else if (TIMx == TIM4)
+		RCC->APB1ENR |= RCC_APB1ENR_TIM4EN;
+	
 }

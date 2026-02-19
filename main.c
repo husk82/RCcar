@@ -7,6 +7,6 @@ int main(void)
 	PIN_Config_Init();
 	while(1)
 	{
-		STATUS_LED_PORT->ODR |= (1 << STATUS_LED_PIN);
+		
 	}
 }

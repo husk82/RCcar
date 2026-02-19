@@ -414,6 +414,16 @@
               <FileType>1</FileType>
               <FilePath>.\gpio.c</FilePath>
             </File>
+            <File>
+              <FileName>tim_h.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\tim_h.h</FilePath>
+            </File>
+            <File>
+              <FileName>tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\tim.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
