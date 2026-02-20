@@ -10,19 +10,42 @@ void TIM_PMW_Init(TIM_TypeDef *TIMx, uint32_t psc, uint32_t arr)
 }
 void TIM_PMW_Enable_Channel(TIM_TypeDef *TIMx, uint8_t channel)
 {
-	if(channel == 1)
+	switch(channel)
 	{
-		TIMx->CCMR1 &= ~(7 << 4);
-		TIMx->CCMR1 |= (6 <<4 );							// PWM mode 1
-		TIMx->CCMR1 |= TIM_CCMR1_OC1PE;				// Preload enable
-		TIMx->CCER |= TIM_CCER_CC1E;					// Enable output
+		case 1: 
+			TIMx->CCMR1 &= ~(7 << 4);
+			TIMx->CCMR1 |= (6 <<4 );							// PWM mode 1
+			TIMx->CCMR1 |= TIM_CCMR1_OC1PE;				// Preload enable
+			TIMx->CCER |= TIM_CCER_CC1E;					// Enable output
+			break;
+		case 2: 
+			TIMx->CCMR1 &= ~(7 << 4);
+			TIMx->CCMR1 |= (6 <<4 );							// PWM mode 1
+			TIMx->CCMR1 |= TIM_CCMR1_OC2PE;				// Preload enable
+			TIMx->CCER |= TIM_CCER_CC2E;					// Enable output
+			break;
+		case 3: 
+			TIMx->CCMR2 &= ~(7 << 4);
+			TIMx->CCMR2 |= (6 <<4 );							// PWM mode 1
+			TIMx->CCMR2 |= TIM_CCMR2_OC3PE;				// Preload enable
+			TIMx->CCER |= TIM_CCER_CC3E;					// Enable output
+			break;
+		case 4: 
+			TIMx->CCMR2 &= ~(7 << 4);
+			TIMx->CCMR2 |= (6 <<4 );							// PWM mode 1
+			TIMx->CCMR2 |= TIM_CCMR2_OC4PE;				// Preload enable
+			TIMx->CCER |= TIM_CCER_CC4E;					// Enable output
+			break;
 	}
 }
 void TIM_PMW_Set_Duty(TIM_TypeDef *TIMx, uint8_t channel, uint32_t duty)
 {
-	if(channel == 1)
+	switch(channel)
 	{
-		TIMx->CCR1 = duty;
+		case 1: TIMx->CCR1 = duty; break;
+		case 2: TIMx->CCR2 = duty; break;
+		case 3: TIMx->CCR3 = duty; break;
+		case 4: TIMx->CCR4 = duty; break;
 	}
 }
 
@@ -30,7 +53,6 @@ void TIM_Start(TIM_TypeDef *TIMx)
 {
 	TIMx->CR1 |= TIM_CR1_CEN;
 }
-
 
 void TIM_Stop(TIM_TypeDef *TIMx)
 {

@@ -20,3 +20,16 @@ void GPIO_Init(GPIO_TypeDef *GPIOx, uint8_t pin, uint8_t mode, uint8_t otype, ui
 	
 }
 
+void GPIO_Set_AF(GPIO_TypeDef *GPIOx, uint8_t pin, uint8_t af)
+{
+	if (pin< 8)
+	{
+		GPIOx->AFRL &= ~(0xF << (pin * 4));
+		GPIOx->AFRL |= (af << (pin * 4));
+	}
+	else
+	{
+		GPIOx->AFRH &= ~(0xF << ((pin - 8) * 4));
+		GPIOx->AFRH |= (af << ((pin - 8) * 4));
+	}
+}
