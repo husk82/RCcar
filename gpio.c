@@ -33,3 +33,18 @@ void GPIO_Set_AF(GPIO_TypeDef *GPIOx, uint8_t pin, uint8_t af)
 		GPIOx->AFRH |= (af << ((pin - 8) * 4));
 	}
 }
+
+void GPIO_Set_Pin(GPIO_TypeDef *GPIOx, uint16_t pin)
+{
+	GPIOx->BSRR = (1 << pin);
+}
+
+void GPIO_Reset_Pin(GPIO_TypeDef *GPIOx, uint16_t pin)
+{
+	GPIOx->BSRR = (1 << (pin+16));
+}
+
+void GPIO_Toggle_Pin(GPIO_TypeDef *GPIOx, uint16_t pin)
+{
+	GPIOx->ODR ^= (1 << pin);
+}

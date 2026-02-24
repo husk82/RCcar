@@ -51,4 +51,10 @@ void GPIO_Init(GPIO_TypeDef *GPIOx, uint8_t pin, uint8_t mode, uint8_t otype, ui
 
 // Set Alternate Function if needed
 void GPIO_Set_AF(GPIO_TypeDef *GPIOx, uint8_t pin, uint8_t af);
+
+// Control output pins
+void GPIO_Set_Pin(GPIO_TypeDef *GPIOx, uint16_t pin);
+void GPIO_Reset_Pin(GPIO_TypeDef *GPIOx, uint16_t pin);
+void GPIO_Toggle_Pin(GPIO_TypeDef *GPIOx, uint16_t pin);
+
 #endif
