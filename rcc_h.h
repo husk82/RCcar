@@ -9,5 +9,6 @@ void RCC_Init(void);
 
 void RCC_Enable_GPIOx(GPIO_TypeDef *GPIOx);
 void RCC_Enable_TIMx(TIM_TypeDef *TIMx);
+void RCC_Enable_USARTx(USART_TypeDef *USARTx);
 
 #endif

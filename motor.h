@@ -2,10 +2,6 @@
 #define MOTOR_H
 
 #include "stm32f411xe.h"
-#include "pin_config_h.h"
-
-#define MAX_DUTY (PWM_ARR + 1)
-#define MIN_DUTY 0
 
 typedef enum
 {
